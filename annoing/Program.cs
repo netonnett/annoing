@@ -32,7 +32,7 @@
 
             for (int i = 0; i < listOfNumbers.Length; i++)
             {
-                if(i)
+
             }
             return biggest;
         }
