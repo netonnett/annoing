@@ -96,14 +96,12 @@
 
             for(int i = 0; i < part1.Length; i++)
             {
-                listtogether = part1;
+                listtogether[i] = part1[i];
             }
             for (int i = 0; i < part2.Length; i++)
             {
-                 
+                listtogether[part1.Length + i] = part2[i];
             }
-
-
 
             return listtogether;    
         }
