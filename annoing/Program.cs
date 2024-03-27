@@ -6,9 +6,11 @@
         {
             int[] testTal = { 1, 2, 3, };
             string[] names = { "Anna", "Bertil", "Cesar" };
-            int[] swapTestData = { 8, 90, 6, 22 ,76,3};
+            int[] swapTestData = { 8, 90, 6, 22,7,9 };
             string[] testPart1 = { "foo", "bar", "baz" };
             string[] testPart2 = { "apa", "bpa", "cpa" };
+            int[] reverseTestData = { 1, 2, 3, 4, 5, 6, 7 };
+            string[] rotateTestData = { "a", "b", "c", "d", "e" };
 
             // Summan
             Console.WriteLine("Demonstration av Summan:");
@@ -33,6 +35,19 @@
             Console.WriteLine("Demonstration av Concatenate:");
             string[] concatResult = Concatenate(testPart1, testPart2);
             Console.WriteLine("Sammansatt array: " + string.Join(",", concatResult));
+
+            // Reverse
+            Console.WriteLine("Demonstration av Reverse:");
+            Console.WriteLine("Före: " + string.Join(",", reverseTestData));
+            Reverse(reverseTestData);
+            Console.WriteLine("Efter: " + string.Join(",", reverseTestData));
+            Console.WriteLine();
+
+            // Rotate
+            Console.WriteLine("Demonstration av Rotate:");
+            Console.WriteLine("Före: " + string.Join(",", rotateTestData));
+            string[] rotateTestDataResult = Rotate(rotateTestData, 2);
+            Console.WriteLine("Efter: " + string.Join(",", rotateTestDataResult));
         }
 
         public static int Summan(int[] listOfNumbers)
@@ -76,7 +91,7 @@
                
             }
 
-            return false; // TODO
+            return false; 
         }
 
         public static void Swap(int index1, int index2, int[] numbers)
@@ -105,6 +120,29 @@
 
             return listtogether;    
         }
+
+        public static void Reverse(int[] numbers)
+        {
+            for(int i = 0; i < numbers.Length / 2; i++)
+            {
+                Swap(i, numbers.Length - 1 - i, numbers);
+            }
+        }
+
+        public static string[] Rotate(string[] strings, int n)
+        {
+            string[] newfly = new string[strings.Length];
+            for(int i = 0; i < strings.Length; i++)
+            {
+                newfly[(i + n ) % strings.Length] = strings[i];
+                
+
+            }
+
+            return newfly;
+        }
+
+
     }
 
 }
